@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTblcekinTable extends Migration
+class CreateTblpemesananTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateTblcekinTable extends Migration
      */
     public function up()
     {
-        Schema::create('tblcekin', function (Blueprint $table) {
-            $table->string('kodecekin',20);
-            $table->string('kodepesan',20);
+        Schema::create('tblpemesanan', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('kodepengunjung');
+            $table->foreign('kodepengunjung')->references("id")->on("tblpengunjung");
             $table->unsignedBigInteger('kodekamar');
             $table->foreign('kodekamar')->references("id")->on("tblkamar");
-            $table->date('tglmasuk');
-            $table->date('tglkeluar');
+            $table->date('tglpesan');
+            $table->string('lamanginap',10);
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateTblcekinTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tblcekin');
+        Schema::dropIfExists('tblpemesanan');
     }
 }
