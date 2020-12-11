@@ -15,7 +15,7 @@ sudo apt install docker.io docker-compose -y
 
 ### Menjalankan Docker
 ```
-git clone https://github.com/gymie/docker-compose-laravel.git laravel
+git clone https://github.com/drepur/docker-compose-laravel.git laravel
 cd laravel
 mkdir src
 docker-compose run --rm composer create-project --prefer-dist laravel/laravel .
