@@ -29,25 +29,38 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 Auth::routes();
 
+Route::group(['middleware' => ['auth']], function() {
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Route::get('/kamar/form',[KamarController::class,'tampilform'])
     ->name("kamar.form");
+Route::get('/kamar/hapus/{id}',[KamarController::class,'hapuskamar'])
+    ->name("kamar.hapus");
+Route::post('/kamar/create',[KamarController::class,'buatkamar'])
+    ->name("kamar.create");
 
-Route::get('/pemesanan',[PemesananController::class,'tampilpemesanan'])
+Route::get('/pemesanan',[PemesananController::class,'index'])
     ->name("pemesanan");
 Route::get('/pemesanan/form',[PemesananController::class,'tampilform'])
     ->name("pemesanan.form");
+Route::get('/pemesanan/hapus/{id}',[PemesananController::class,'hapuspemesanan'])
+    ->name("pemesanan.hapus");
+Route::post('/pemesanan/simpan',[PemesananController::class,'buatpemesanan'])
+    ->name("pemesanan.simpan");
 
 Route::get('/tentang',[TentangController::class,'tampiltentang'])
     ->name("tentang");
 
-Route::get('/pengunjung',[PengunjungController::class,'tampilpengunjung'])
-    ->name("pengunjung");
+Route::get('/pengunjung',[PengunjungController::class,'index'])
+    ->name('pengunjung');
 Route::get('/pengunjung/form',[PengunjungController::class,'tampilform'])
     ->name("pengunjung.form");
-Route::view('/pengunjung/detail','pengunjung.detail')
-    ->name("pengunjung.detail");
+Route::get('/pengunjung/hapus/{id}',[PengunjungController::class,'hapuspengunjung'])
+    ->name("pengunjung.hapus");
+Route::post('/pengunjung/simpan',[PengunjungController::class,'buatpengunjung'])
+    ->name("pengunjung.simpan");
 
 Route::get('/cekin',[CekinController::class,'tampilcekin'])
     ->name("cekin");
@@ -59,9 +72,14 @@ Route::get('/cekout',[CekoutController::class,'tampilcekout'])
 Route::get('/cekout/form',[CekoutController::class,'tampilform'])
     ->name("cekout.form");
 
-Route::get('/karyawan',[KaryawanController::class,'tampilkaryawan'])
-    ->name("karyawan");
+Route::get('/karyawan',[KaryawanController::class,'index'])
+    ->name('karyawan');
 Route::get('/karyawan/form',[KaryawanController::class,'tampilform'])
     ->name("karyawan.form");
-Route::view('/karyawan/detail','karyawan.detail')
-    ->name("karyawan.detail");
+Route::get('/karyawan/hapus/{id}',[KaryawanController::class,'hapuskaryawan'])
+    ->name("karyawan.hapus");
+Route::post('/karyawan/simpan',[KaryawanController::class,'buatkaryawan'])
+    ->name("karyawan.simpan");
+
+
+});

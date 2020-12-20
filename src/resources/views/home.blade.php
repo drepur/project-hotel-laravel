@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-danger mb-4">
     <a class="navbar-brand" href="#"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,9 +45,10 @@
         <div class="clearfix"></div>
 
         <div class="row">
+            @foreach ($kamar as $item)
+                
             <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="">
+                <div class="card mt-2" style="width: 18rem;">
                     <div class="card-header bg-danger text-white">
                         <h5>HOTEL OYO</h5>
                         <p>KAMAR HOTEL</p>
@@ -55,97 +58,30 @@
                             <thead>
                                 <tr>
                                     <th>Jenis Kamar</th>
-                                    <td>Mawar</td>
+                                    <td>{{ $item->jeniskamar }}</td>
                                 </tr>
                                 <tr>
                                     <th>Tipe</th>
-                                    <td>Eksklusif</td>
+                                    <td>{{ $item->tipe }}</td>
                                 </tr>
                                 <tr>
                                     <th>Fasilitas</th>
-                                    <td>Double Bed, AC & TV</td>
+                                    <td>{{ $item->fasilitas }}</td>
                                 </tr>
                                 <tr>
                                     <th>Tarif Kamar</th>
-                                    <td>Rp.200.000</td>
+                                    <td>{{ $item->tarifkamar }}</td>
                                 </tr>
                             </thead>
                         </table>
                     </div>
                     <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
+                        <a href="{{ route("kamar.hapus",["id" => $item->id]) }}" class="btn btn-danger float-right"
+                                    onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-header bg-danger text-white">
-                        <h5>HOTEL OYO</h5>
-                        <p>KAMAR HOTEL</p>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>Jenis Kamar</th>
-                                    <td>Mawar</td>
-                                </tr>
-                                <tr>
-                                    <th>Tipe</th>
-                                    <td>Eksklusif</td>
-                                </tr>
-                                <tr>
-                                    <th>Fasilitas</th>
-                                    <td>Double Bed, AC & TV</td>
-                                </tr>
-                                <tr>
-                                    <th>Tarif Kamar</th>
-                                    <td>Rp.200.000</td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="" class="card-img-top" alt="">
-                    <div class="card-header bg-danger text-white">
-                        <h5>HOTEL OYO</h5>
-                        <p>KAMAR HOTEL</p>
-                    </div>
-                    <div class="card-body">
-                        <table class="table table-borderless">
-                            <thead>
-                                <tr>
-                                    <th>Jenis Kamar</th>
-                                    <td>Mawar</td>
-                                </tr>
-                                <tr>
-                                    <th>Tipe</th>
-                                    <td>Eksklusif</td>
-                                </tr>
-                                <tr>
-                                    <th>Fasilitas</th>
-                                    <td>Double Bed, AC & TV</td>
-                                </tr>
-                                <tr>
-                                    <th>Tarif Kamar</th>
-                                    <td>Rp.200.000</td>
-                                </tr>
-                            </thead>
-                        </table>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-danger float-right"><i class="fas fa-trash"></i></a>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 

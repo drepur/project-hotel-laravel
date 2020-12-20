@@ -2,34 +2,33 @@
 
 @section('content')
     <div class="container">
-            <form action="">
-                <div class="form-group">
-                    <label for="kodepengunjung">Kode Pengunjung</label>
-                    <input type="text" name="kodepengunjung" class="form-control">
-                </div>
+            <form action="{{ route("pengunjung.simpan") }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" name="nama" class="form-control" id="">
+                    <input type="text" name="nama" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <input type="text" name="alamat" class="form-control" id="">
+                    <input type="text" name="alamat" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="tgllahir">Tanggal Lahir</label>
-                    <input type="date" name="tgllahir" class="form-control" id="">
+                    <input type="date" name="tgllahir" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="jeniskelamin">Jenis Kelamin</label>
-                    <input type="text" name="jeniskelamin" class="form-control" id="">
-                </div>
+                    <select name="jeniskelamin" class="form-control">
+                        <option value="laki-laki">Laki-laki</option>
+                        <option value="perempuan">Perempuan</option>
+                      </select>
                 <div class="form-group">
                     <label for="nohp">No. HP</label>
-                    <input type="text" name="nohp" class="form-control" id="">
+                    <input type="text" name="nohp" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="noktp">No. KTP</label>
-                    <input type="text" name="noktp" class="form-control" id="">
+                    <input type="text" name="noktp" class="form-control">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">

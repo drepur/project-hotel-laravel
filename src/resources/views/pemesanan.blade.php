@@ -45,46 +45,28 @@
             </h1>
             <hr>
             <table class = "table table-borderless">
-                <thead>
-                    <tr>
-                        <td>Kode Pengunjung</td>
-                        <td>Kode Kamar</td>
-                        <td>Tanggal Pesan</td>
-                        <td>Lama Menginap</td>
-                        <td>Hapus</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td>2 Hari</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td>2 Hari</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td>2 Hari</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td>2 Hari</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                </tbody>
-            </table>
+              <thead>
+                  <tr>
+                    <th>Kode Pengunjung</th>
+                    <th>Kode Kamar</th>
+                    <th>Tanggal Pesan</th>
+                    <th>Lama Menginap</th>
+                    <th>Hapus</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($pemesanan as $item)
+                  <tr>
+                      <td>{{ $item->kodepengunjung }}</td>
+                      <td>{{ $item->kodekamar }}</td>
+                      <td>{{ $item->tglpesan }}</td>
+                      <td>{{ $item->lamanginap }}</td>
+                      <td><a href="{{ route("pemesanan.hapus",["id" => $item->id]) }}" class="btn btn-danger float-right"
+                        onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i></a></td>
+                  </tr>
+                @endforeach
+              </tbody>
+          </table>
         </div>
     </div>
 @endsection

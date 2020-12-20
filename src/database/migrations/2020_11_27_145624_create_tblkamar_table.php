@@ -17,7 +17,7 @@ class CreateTblkamarTable extends Migration
             $table->id();
             $table->unsignedBigInteger('kodepegawai');
             $table->foreign('kodepegawai')->references("id")->on("tblkaryawan");
-            $table->string('Jenis Kamar',100);
+            $table->string('jeniskamar',100);
             $table->enum('tipe',['eksklusif','vip','ekonomi']);
             $table->string('fasilitas',20);
             $table->string('tarifkamar',20);

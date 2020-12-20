@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-            <form action="">
+            <form action="{{ route("pemesanan.simpan") }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="kodepengunjung">Kode Pengunjung</label>
                     <input type="text" name="kodepengunjung" class="form-control">

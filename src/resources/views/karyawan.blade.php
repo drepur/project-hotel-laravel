@@ -38,48 +38,43 @@
             </div>
         </nav>
         </div>
+        
         <div class="container">
-            <h1>List Karyawan Hotel
+          <h1> List Karyawan Hotel
             <a href="{{ route("karyawan.form") }}" class="btn btn-success float-right mb-4">
-                <i class="fas fa-plus"></i> Tambah Karyawan</a>
-            </h1>
+              <i class="fas fa-plus"></i> Tambah Karyawan</a>
+          </h1>  
             <hr>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{{ route("karyawan.detail") }}">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{{ route("karyawan.detail") }}">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Karyawan 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
+            <table class = "table table-borderless">
+              <thead>
+                  <tr>
+                    <th>Kode Karyawan</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Jenis Kelamin</th>
+                    <th>No HP</th>
+                    <th>Bagian</th>
+                    <th>Hapus</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach ($karyawan as $item)
+                  <tr>
+                      <td>{{ $item->kodepegawai }}</td>
+                      <td>{{ $item->nama }}</td>
+                      <td>{{ $item->alamat }}</td>
+                      <td>{{ $item->tgllahir }}</td>
+                      <td>{{ $item->jeniskelamin }}</td>
+                      <td>{{ $item->nohp }}</td>
+                      <td>{{ $item->bagian }}</td>
+                      <td><a href="{{ route("karyawan.hapus",["id" => $item->id]) }}" class="btn btn-danger float-right"
+                        onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i></a></td>
+                  </tr>
+                @endforeach
+              </tbody>
+          </table>
         </div>
+      </div>
     </div>
 @endsection

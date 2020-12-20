@@ -20,7 +20,7 @@ class CreateTblkaryawanTable extends Migration
             $table->string('nama',100);
             $table->string('alamat',100);
             $table->date('tgllahir');
-            $table->enum('jeniskelamin',['l','p']);
+            $table->enum('jeniskelamin',['laki-laki','perempuan']);
             $table->string('nohp',15);
             $table->string('bagian',20);
             $table->timestamps();

@@ -1,6 +1,14 @@
-@extends('layouts.app')
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokter</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+     crossorigin="anonymous">
+</head>
+<body>
 
-@section('content')
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-danger mb-4">
             <a class="navbar-brand" href="#"></a>
@@ -40,46 +48,42 @@
         </div>
         <div class="container">
             <h1>List Pengunjung Hotel
-            <a href="{{ route("pengunjung.form") }}" class="btn btn-success float-right mb-4">
+              <a href="{{ route("pengunjung.form") }}" class="btn btn-success float-right mb-4">
                 <i class="fas fa-plus"></i> Tambah Pengunjung</a>
             </h1>
             <hr>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="{{ route("pengunjung.detail") }}">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <a href="">Pengunjung 1</a>
-                    <a href="" class="btn btn-danger"><i class="fas fa-trash"></i> Hapus </a>
-                </li>
-            </ul>
+            <table class = "table table-borderless">
+                <thead>
+                    <tr>
+                      <th>Kode Pengunjung</th>
+                      <th>Nama</th>
+                      <th>Alamat</th>
+                      <th>Tanggal Lahir</th>
+                      <th>Jenis Kelamin</th>
+                      <th>No HP</th>
+                      <th>No KTP</th>
+                      <th>Hapus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach ($pengunjung as $item)
+                    <tr>
+                        <td>{{ $item->kodepengunjung }}</td>
+                        <td>{{ $item->nama }}</td>
+                        <td>{{ $item->alamat }}</td>
+                        <td>{{ $item->tgllahir }}</td>
+                        <td>{{ $item->jeniskelamin }}</td>
+                        <td>{{ $item->nohp }}</td>
+                        <td>{{ $item->noktp }}</td>
+                        <td><a href="{{ route("pengunjung.hapus",["id" => $item->id]) }}" class="btn btn-danger float-right"
+                          onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i>Hapus</a></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-@endsection
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+</body>
+</html>
