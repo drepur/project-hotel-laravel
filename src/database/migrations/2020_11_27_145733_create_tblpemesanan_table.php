@@ -15,10 +15,8 @@ class CreateTblpemesananTable extends Migration
     {
         Schema::create('tblpemesanan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kodepengunjung');
-            $table->foreign('kodepengunjung')->references("id")->on("tblpengunjung");
-            $table->unsignedBigInteger('kodekamar');
-            $table->foreign('kodekamar')->references("id")->on("tblkamar");
+            $table->string('kodepengunjung',3);
+            $table->string('kodekamar',10);
             $table->date('tglpesan');
             $table->string('lamanginap',10);
             $table->timestamps();

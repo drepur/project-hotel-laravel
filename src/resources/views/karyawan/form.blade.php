@@ -2,8 +2,17 @@
 
 @section('content')
     <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-danger mb-4 text-white">
+           <h1>Form Input Pengunjung</h1>
+        </nav>
+        </div>
+    <div class="container">
                     <form action="{{ route("karyawan.simpan") }}" method="POST">
                       @csrf
+                      <div class="form-group">
+                        <label for="kodekaryawan">Kode Karyawan</label>
+                        <input type="text" name="kodekaryawan" class="form-control">
+                    </div>
                       <div class="form-group">
                           <label for="nama">Nama</label>
                           <input type="text" name="nama" class="form-control">
@@ -39,4 +48,4 @@
                       </div>
                   </form>
     </div>
-@endsection
+    @endsection

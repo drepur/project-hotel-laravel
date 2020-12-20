@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+   <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-danger mb-4">
             <a class="navbar-brand" href="#"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,8 +37,7 @@
               </ul>
             </div>
         </nav>
-        </div>
-        
+      </div>
         <div class="container">
           <h1> List Karyawan Hotel
             <a href="{{ route("karyawan.form") }}" class="btn btn-success float-right mb-4">
@@ -61,7 +60,7 @@
               <tbody>
                 @foreach ($karyawan as $item)
                   <tr>
-                      <td>{{ $item->kodepegawai }}</td>
+                      <td>{{ $item->kodekaryawan }}</td>
                       <td>{{ $item->nama }}</td>
                       <td>{{ $item->alamat }}</td>
                       <td>{{ $item->tgllahir }}</td>
@@ -77,4 +76,4 @@
         </div>
       </div>
     </div>
-@endsection
+  @endsection

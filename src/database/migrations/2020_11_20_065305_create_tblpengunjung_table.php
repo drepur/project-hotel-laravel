@@ -15,8 +15,7 @@ class CreateTblpengunjungTable extends Migration
     {
         Schema::create('tblpengunjung', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kodepengunjung');
-            $table->foreign('kodepengunjung')->references("id")->on("users");
+            $table->string('kodepengunjung',3);
             $table->string('nama',100);
             $table->string('alamat',100);
             $table->date('tgllahir');

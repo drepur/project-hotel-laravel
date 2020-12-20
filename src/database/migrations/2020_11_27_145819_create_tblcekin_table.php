@@ -15,10 +15,9 @@ class CreateTblcekinTable extends Migration
     {
         Schema::create('tblcekin', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kodepesan');
-            $table->foreign('kodepesan')->references("id")->on("tblpemesanan");
-            $table->unsignedBigInteger('kodekamar');
-            $table->foreign('kodekamar')->references("id")->on("tblkamar");
+            $table->string('kodecekin',3);
+            $table->string('kodepesan',3);
+            $table->string('kodekamar',10);
             $table->date('tglmasuk');
             $table->date('tglkeluar');
             $table->timestamps();

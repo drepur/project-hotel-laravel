@@ -28,7 +28,7 @@ class KaryawanController extends Controller
     public function buatkaryawan(Request $request){
 
         Karyawan::create([
-        "kodepegawai" => $request->kodepegawai,
+        "kodekaryawan" => $request->kodekaryawan,
         "nama" => $request->nama,
         "alamat" => $request->alamat,
         "tgllahir" => $request->tgllahir,

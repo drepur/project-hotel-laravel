@@ -15,10 +15,9 @@ class CreateTblcekoutTable extends Migration
     {
         Schema::create('tblcekout', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kodecekin');
-            $table->foreign('kodecekin')->references("id")->on("tblcekin");
-            $table->unsignedBigInteger('kodepesan');
-            $table->foreign('kodepesan')->references("id")->on("tblpemesanan");
+            $table->string('kodecekout',3);
+            $table->string('kodecekin',3);
+            $table->string('kodepesan',3);
             $table->date('tglcekout');
             $table->timestamps();
         });

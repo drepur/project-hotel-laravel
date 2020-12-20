@@ -47,37 +47,24 @@
             <table class = "table table-borderless">
                 <thead>
                     <tr>
-                        <td>Kode Cekout</td>
+                        <td>Kode Cek Out</td>
+                        <td>Kode Cek IN</td>
                         <td>Kode Pesan</td>
                         <td>Tanggal Cek out</td>
                         <td>Hapus</td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td>001</td>
-                        <td>Mawar201</td>
-                        <td>12 Agustus 2020</td>
-                        <td><a href="#" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
-                    </tr>
+                  @foreach ($cekout as $item)
+                  <tr>
+                      <td>{{ $item->kodecekout }}</td>
+                      <td>{{ $item->kodecekin }}</td>
+                      <td>{{ $item->kodepesan }}</td>
+                      <td>{{ $item->tglcekout }}</td>
+                      <td><a href="{{ route("cekout.hapus",["id" => $item->id]) }}" class="btn btn-danger float-right"
+                        onclick="return confirm('Anda Yakin Hapus?')"><i class="fas fa-trash"></i></a></td>
+                  </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

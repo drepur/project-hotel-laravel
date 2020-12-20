@@ -16,7 +16,7 @@ class CreateTblkamarTable extends Migration
         Schema::create('tblkamar', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('kodepegawai');
-            $table->foreign('kodepegawai')->references("id")->on("tblkaryawan");
+            $table->foreign('kodepegawai')->references("id")->on("users");
             $table->string('jeniskamar',100);
             $table->enum('tipe',['eksklusif','vip','ekonomi']);
             $table->string('fasilitas',20);

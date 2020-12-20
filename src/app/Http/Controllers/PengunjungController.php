@@ -28,7 +28,7 @@ class PengunjungController extends Controller
     public function buatpengunjung(Request $request){
 
         Pengunjung::create([
-        "kodepengunjung" => \Auth()->id(),
+        "kodepengunjung" => $request->kodepengunjung,
         "nama" => $request->nama,
         "alamat" => $request->alamat,
         "tgllahir" => $request->tgllahir,

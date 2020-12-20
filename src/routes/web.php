@@ -62,15 +62,24 @@ Route::get('/pengunjung/hapus/{id}',[PengunjungController::class,'hapuspengunjun
 Route::post('/pengunjung/simpan',[PengunjungController::class,'buatpengunjung'])
     ->name("pengunjung.simpan");
 
-Route::get('/cekin',[CekinController::class,'tampilcekin'])
+Route::get('/cekin',[CekinController::class,'index'])
     ->name("cekin");
 Route::get('/cekin/form',[CekinController::class,'tampilform'])
     ->name("cekin.form");
+Route::get('/cekin/hapus/{id}',[CekinController::class,'hapuscekin'])
+    ->name("cekin.hapus");
+Route::post('/cekin/simpan',[CekinController::class,'buatcekin'])
+    ->name("cekin.simpan");
 
-Route::get('/cekout',[CekoutController::class,'tampilcekout'])
-    ->name("cekin");
+Route::get('/cekout',[CekoutController::class,'index'])
+    ->name("cekout");
 Route::get('/cekout/form',[CekoutController::class,'tampilform'])
     ->name("cekout.form");
+Route::get('/cekout/hapus/{id}',[CekoutController::class,'hapuscekout'])
+    ->name("cekout.hapus");
+Route::post('/cekout/simpan',[CekoutController::class,'buatcekout'])
+    ->name("cekout.simpan");
+
 
 Route::get('/karyawan',[KaryawanController::class,'index'])
     ->name('karyawan');

@@ -15,8 +15,7 @@ class CreateTblkaryawanTable extends Migration
     {
         Schema::create('tblkaryawan', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('kodepegawai');
-            $table->foreign('kodepegawai')->references("id")->on("users");
+            $table->string('kodekaryawan',3);
             $table->string('nama',100);
             $table->string('alamat',100);
             $table->date('tgllahir');
